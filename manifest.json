@@ -1,0 +1,11 @@
+{
+    "manifest_version": 2,
+    "name": "TotalProductiviy",
+    "description": "Best chrome extension that helps maximize user productivity",
+    "version": "1.0.0",
+    "background": {
+        "scripts": ["script.js"],
+        "persistent" : false
+    },
+    "permissions": ["activeTab"]
+}
