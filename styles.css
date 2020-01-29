@@ -1,3 +1,5 @@
+/*071013, EB5160, DFE0E2, 9CC5A18?
+
 html body{
     margin: 0;
     padding: 0;
@@ -23,30 +25,37 @@ html body{
     display: flex;
 }
 
-#content-box{
+#content{
     /*position: absolute;*/
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    margin: 10px;
+}
+
+#content-box{
     background: #c4c4c4;
     border-radius: 5px;
 }
 
 .weatherVisual{
-    width: 131px;
     height: 96px;
+    grid-column: 1/2;
 }
 
 .weatherInfo{
-    width: 255px;
     height: 96px;
+    grid-column: 2/5;
 }
 
 .notes{
-    width: 401px;
     height: 194px;
+    grid-column: 1/5;
 }
 
 .calender{
-    width: 401px;
     height: 131px;
+    grid-column: 1/5;
 }
 
 #title{
@@ -71,10 +80,14 @@ img{
     border-radius: 40px;
 }
 
-.expand{
+#expand{
     /*position: absolute;*/
     width: 37px;
     height: 23px;
     background: #EB5160;
     border-radius: 5px;
+}
+
+#expand:hover{
+    cursor: pointer;
 }
