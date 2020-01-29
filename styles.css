@@ -1,4 +1,4 @@
-/*071013, EB5160, DFE0E2, 9CC5A18?
+/*071013, EB5160, DFE0E2, 9CC5A18*/
 
 html body{
     margin: 0;
@@ -6,18 +6,16 @@ html body{
 }
 
 #container{
-    /*position: absolute;*/
     width: 434px;
     height: 568px;
     background: #DFE0E2;
     border-radius: 10px;
     font-style: normal;
     font-weight: normal;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 #header{
-    /*position: absolute;*/
+    position: relative;
     width: 434px;
     height: 65px;
     background: #071013;
@@ -26,7 +24,6 @@ html body{
 }
 
 #content{
-    /*position: absolute;*/
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
@@ -49,29 +46,39 @@ html body{
 }
 
 .notes{
+    position: relative;
     height: 194px;
     grid-column: 1/5;
 }
 
 .calender{
+    position: relative;
     height: 131px;
     grid-column: 1/5;
 }
 
 #title{
+    margin: 0px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 24px;
+    position: absolute;
     color: #EB5160;
     border: 1px solid #000000;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    align-items: center;
-    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .login {
-    /*position: absolute;*/
+    position: absolute;
     width: 49px;
     height: 49px;
     box-shadow: -3px 2px 4px rgba(177, 0, 15, 0.3);
     border-radius: 40px;
+    top:50%;
+    left:100%;
+    transform: translate(-150%, -50%);
 }
 
 img{
@@ -81,11 +88,14 @@ img{
 }
 
 #expand{
-    /*position: absolute;*/
+    position: absolute;
     width: 37px;
     height: 23px;
     background: #EB5160;
     border-radius: 5px;
+    left: 100%;
+    top: 100%;
+    transform: translate(-110%, -110%); /*since the above move it 100%, it is 100% of its body height and width out of the container, so you need to translate it back that same amount8*/
 }
 
 #expand:hover{

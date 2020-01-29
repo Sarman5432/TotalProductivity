@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "TotalProductiviy",
+    "name": "TotalProductivity",
     "description": "Best chrome extension that helps maximize user productivity",
     "version": "1.0.0",
     "background": {
