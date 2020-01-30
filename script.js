@@ -1,41 +1,57 @@
 //API Keys
 const weatherKey = "33513f08e0c240ce0c03d54749e0a333"; //Dark Sky API
 
-//variables
-var longitude;
-var latitude;
+getLocation(); //TODO: make it on load
 
-getLocation();
+var weatherData; //data from Dark Sky Api as parsed json
+
+//add the weather to the UI
+function weatherUI(position) {
+    weatherData = loadWeatherData(weatherKey, position.coords.latitude, position.coords.longitude);
+    
+    //adding icon to grid 1
+    const weatherVisual = document.getElementsByClassName('weatherVisual');
+    const weatherImage = document.createElement('img');
+    const weatherLocation = document.createElement('p');
+    weatherImage.src = data.currently.icon;
+    weatherLocation.innerText = data.timezone;
+    weatherVisual.append(weatherImage);
+    weatherVisual.append(weatherLocation);
+}
 
 //Gets User Location
 function getLocation(){
     if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(storePosition);
+        navigator.geolocation.getCurrentPosition(weatherUI);
     }else{
         alert('Geolocation is not supported by this browser');
     }
-    loadWeatherData(weatherKey, 43.589046, -79.644119);
 }
 
-function storePosition(position) {
-    latitude = position.coords.latitude;
-    longitude = position.coords.longitude;
+//Expands the section on button click
+function fullPage(){
+    const section = document.getElementsByClassName('notes');
+    
 }
 
 //Load weather
 function loadWeatherData(weatherKey, latitude, longitude){
     var request = new XMLHttpRequest();
     request.open('GET', `https://api.darksky.net/forecast/${weatherKey}/${latitude},${longitude}`, true)
+    
+    var data = JSON.parse(this.response)
+
     request.onload = function(){
         if(request.status>=200 && request.status<400){
-            var data = JSON.parse(this.response)
             console.log(data);
         }else{
             console.log("Error")
         }
     }
     request.send();
+    return data
 }
+
 
 
 

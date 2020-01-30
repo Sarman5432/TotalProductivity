@@ -100,4 +100,12 @@ img{
 
 #expand:hover{
     cursor: pointer;
+    background: #9CC5A1;
+}
+#title:hover{
+    cursor: pointer;
+    color: #9CC5A1; 
+}
+.notes{
+    cursor: text;
 }
