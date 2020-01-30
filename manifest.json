@@ -4,7 +4,7 @@
     "description": "Best chrome extension that helps maximize user productivity",
     "version": "1.0.0",
     "background": {
-        "scripts": ["script.js"],
+        "scripts": ["script.js", "jquery-3.4.1.min.js"],
         "persistent" : false
     },
     "browser_action" : {
