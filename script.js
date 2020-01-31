@@ -25,11 +25,11 @@ function weatherUI(weatherData){
     //add the icon based on current condition
     if((weatherData.currently.icon === 'cloudy') || (weatherData.currently.icon === 'wind') || (weatherData.currently.icon === 'fog')){
         $('.weatherVisual').append(
-            '<i class="fas fa-cloud" id="weatherIcon"></i>'
+            '<i class="fas fa-cloud" id="weatherIcon" style="font-size:80px"></i>'
         )
     }else if((weatherData.currently.icon === 'partly-cloudy-day') || (weatherData.currently.icon === 'partly-cloudy-night')){
         $('.weatherVisual').append(
-            '<i class="fas fa-cloud-sun" id="weatherIcon"></i>'
+            '<i class="fas fa-cloud-sun" id="weatherIcon" style="font-size:80px"></i>'
         )
     }else if((weatherData.currently.icon === 'clear-day') || (weatherData.currently.icon === 'clear-night')){
         $('.weatherVisual').append(
@@ -49,12 +49,35 @@ function weatherUI(weatherData){
         )
     }else {
         $('.weatherVisual').append(
-            '<i class="fas fa-cloud-sun" id="weatherIcon"></i>'
+            '<i class="fas fa-cloud-sun" id="weatherIcon" style="font-size:80px"></i>'
         )
     }
 
     //add the weather information
-    $('.weatherData')
+    $('.weatherInfo').append(
+        '<div class="weatherData">'
+            +'<p><b>' + weatherData.timezone + '</b></p>'
+            +'<h2>' + fahrenheitToCelsius(weatherData.currently.temperature) + '&#8451</h2>'
+            +'<p>Humidity: ' + weatherData.currently.humidity + '</p>'
+            +'<p>' + fahrenheitToCelsius(weatherData.currently.apparentTemperature) + '&#8451</p>'
+            +'<p>Precip: ' + decimalToPercent(weatherData.currently.precipProbability) + '%</p>'
+        +'</div>'
+    )
+
+    if(weatherData.currently.precipProbability != 0){
+        $('.weatherData').append('<p>Type: ' + weatherData.currently.precipType + '</p>')
+    }
+}
+
+//returns percentage (no decimal points)
+function decimalToPercent(dec){
+    return Math.trunc(dec*100)
+}
+
+//converts Fahrenheit to celsius
+function fahrenheitToCelsius(fahr){
+    return Math.trunc((fahr-32)*(5/9)
+)
 }
 
 //Expands the section on button click
