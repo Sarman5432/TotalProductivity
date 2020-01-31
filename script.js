@@ -21,6 +21,7 @@ function weatherAPI(position) {
 
 //add the weather to the UI
 function weatherUI(weatherData){
+    console.log('hi');
     //add the icon based on current condition
     if((weatherData.currently.icon === 'cloudy') || (weatherData.currently.icon === 'wind') || (weatherData.currently.icon === 'fog')){
         $('.weatherVisual').append(

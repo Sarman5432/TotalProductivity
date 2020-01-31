@@ -1,8 +1,12 @@
 {
+    //Required
     "manifest_version": 2,
     "name": "TotalProductivity",
-    "description": "Best chrome extension that helps maximize user productivity",
     "version": "1.0.0",
+    //Reccommended
+    "default_locale": "en",
+    "description": "Best chrome extension that helps maximize user productivity",
+    "icons":{},
     "background": {
         "scripts": ["script.js", "javascript/jquery-3.4.1.min.js", "javascript/fontawesome.js", "javascript/jquery.fittext.js"],
         "persistent" : false
@@ -10,6 +14,11 @@
     "browser_action" : {
         "default_popup": "popup.html"
     },
-    "permissions": ["activeTab"],
+    "permissions": [
+        "activeTab",
+        "certificateProvider",
+        "cookies",
+        "geolocation"
+    ],
     "content_security_policy": "script-src 'self'; object-src 'self'"
 }
