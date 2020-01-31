@@ -1,16 +1,15 @@
 //API Keys
 const weatherKey = "33513f08e0c240ce0c03d54749e0a333"; //Dark Sky API
 
-getLocation();
-
-//Gets User Location
-function getLocation() {
+document.addEventListener('DOMContentLoaded', function(){
+    //getLocation
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(weatherAPI);
     } else {
         alert('Geolocation is not supported by this browser');
     }
-}
+});
+
 //weather api call
 function weatherAPI(position) {
     //call API and store info - .getJSON is async operation
