@@ -1,4 +1,4 @@
-/*071013, EB5160, DFE0E2, 9CC5A18*/
+/*black: 071013, RED: EB5160, lightgrey: DFE0E2, green: 9CC5A18*/
 
 html body{
     margin: 0;
@@ -38,6 +38,7 @@ html body{
 .weatherVisual{
     height: 96px;
     grid-column: 1/2;
+    visibility: hidden;
 }
 
 .weatherInfo{
@@ -108,4 +109,9 @@ img{
 }
 .notes{
     cursor: text;
+}
+
+#weatherIcon{
+    color: #EB5160;
+    visibility: visible;
 }

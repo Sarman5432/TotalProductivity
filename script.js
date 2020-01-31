@@ -6,64 +6,54 @@ getLocation();
 //Gets User Location
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(weatherUI);
+        navigator.geolocation.getCurrentPosition(weatherAPI);
     } else {
         alert('Geolocation is not supported by this browser');
     }
 }
+//weather api call
+function weatherAPI(position) {
+    //call API and store info - .getJSON is async operation
+    $.getJSON(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${weatherKey}/${position.coords.latitude},${position.coords.longitude}`, function (forecast) {
+        weatherUI(forecast);
+    });
+}
 
 
 //add the weather to the UI
-function weatherUI(position) {
-    var dataJSON;
-    //call API and store info - .getJSON is async operation
-    $.getJSON(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${weatherKey}/${position.coords.latitude},${position.coords.longitude}`, function (forecast) {
-        dataJSON = forecast;
-    });
-    console.log(dataJSON);
+function weatherUI(weatherData){
+    if((weatherData.currently.icon === 'cloudy') || (weatherData.currently.icon === 'wind') || (weatherData.currently.icon === 'fog')){
+        $('.weatherVisual').append(
+            '<i class="fas fa-cloud" id="weatherIcon"></i>'
+        ).fitText(0.1);
+    }else if((weatherData.currently.icon === 'partly-cloudy-day') || (weatherData.currently.icon === 'partly-cloudy-night')){
+        $('.weatherVisual').append(
+            '<i class="fas fa-cloud-sun" id="weatherIcon"></i>'
+        ).fitText(0.1);
+    }else if((weatherData.currently.icon === 'clear-day') || (weatherData.currently.icon === 'clear-night')){
+        $('.weatherVisual').append(
+            '<i class="fas fa-sun" id="weatherIcon"></i>'
+        ).fitText(0.1);
+    }else if(weatherData.currently.icon === 'rain'){
+        $('.weatherVisual').append(
+            '<i class="fas fa-cloud-showers-heavy" id="weatherIcon"></i>'
+        ).fitText(0.1);
+    }else if(weatherData.currently.icon === 'thunderstorm'){
+        $('.weatherVisual').append(
+            '<i class="fas fa-bolt" id="weatherIcon"></i>'
+        ).fitText(0.1);
+    }else if((weatherData.currently.icon === 'snow') || (weatherData.currently.icon === 'sleet') || (weatherData.currently.icon === 'hail')){
+        $('.weatherVisual').append(
+            '<i class="far fa-snowflake" id="weatherIcon"></i>'
+        ).fitText(0.1);
+    }else {
+        $('.weatherVisual').append(
+            '<i class="fas fa-cloud-sun" id="weatherIcon"></i>'
+        ).fitText(0.1);
+    }
 }
 
 //Expands the section on button click
 function fullPage() {
     const section = document.getElementsByClassName('notes');
-
 }
-
-
-
-
-//How to call api without jquery
-/*
-var request = new XMLHttpRequest();
-    request.open('GET', `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${weatherKey}/${position.coords.latitude},${position.coords.longitude}`, true)
-    request.onload = function(){
-         var data = JSON.parse(this.response)
-        if(request.status>=200 && request.status<400){
-            console.log(data);
-        }else{
-            console.log("Error")
-        }
-    }
-    request.send();
-*/
-
-//practice getting json from var
-/*
-var data = '[ { "name": "Aragorn", "race": "Human" }, { "name": "Gimli", "race": "Dwarf" } ]'
-data = JSON.parse(data);
-console.log(data[0].name)
-*/
-
-//practice getting json from json file
-/*
-var request = new XMLHttpRequest();
-request.open('GET', 'practice.json', true);
-
-request.onload = function(){
-    var data = JSON.parse(this.response);
-    for(var i=0; i<data.length;i++){
-        console.log(data[i].name);
-    }
-}
-request.send();
-*/
