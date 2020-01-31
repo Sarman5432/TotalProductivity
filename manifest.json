@@ -4,7 +4,6 @@
     "name": "TotalProductivity",
     "version": "1.0.0",
     //Reccommended
-    "default_locale": "en",
     "description": "Best chrome extension that helps maximize user productivity",
     "icons":{},
     "background": {
@@ -16,7 +15,6 @@
     },
     "permissions": [
         "activeTab",
-        "certificateProvider",
         "cookies",
         "geolocation"
     ],
