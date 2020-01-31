@@ -21,35 +21,39 @@ function weatherAPI(position) {
 
 //add the weather to the UI
 function weatherUI(weatherData){
+    //add the icon based on current condition
     if((weatherData.currently.icon === 'cloudy') || (weatherData.currently.icon === 'wind') || (weatherData.currently.icon === 'fog')){
         $('.weatherVisual').append(
             '<i class="fas fa-cloud" id="weatherIcon"></i>'
-        ).fitText(0.1);
+        )
     }else if((weatherData.currently.icon === 'partly-cloudy-day') || (weatherData.currently.icon === 'partly-cloudy-night')){
         $('.weatherVisual').append(
             '<i class="fas fa-cloud-sun" id="weatherIcon"></i>'
-        ).fitText(0.1);
+        )
     }else if((weatherData.currently.icon === 'clear-day') || (weatherData.currently.icon === 'clear-night')){
         $('.weatherVisual').append(
             '<i class="fas fa-sun" id="weatherIcon"></i>'
-        ).fitText(0.1);
+        )
     }else if(weatherData.currently.icon === 'rain'){
         $('.weatherVisual').append(
             '<i class="fas fa-cloud-showers-heavy" id="weatherIcon"></i>'
-        ).fitText(0.1);
+        )
     }else if(weatherData.currently.icon === 'thunderstorm'){
         $('.weatherVisual').append(
             '<i class="fas fa-bolt" id="weatherIcon"></i>'
-        ).fitText(0.1);
+        )
     }else if((weatherData.currently.icon === 'snow') || (weatherData.currently.icon === 'sleet') || (weatherData.currently.icon === 'hail')){
         $('.weatherVisual').append(
             '<i class="far fa-snowflake" id="weatherIcon"></i>'
-        ).fitText(0.1);
+        )
     }else {
         $('.weatherVisual').append(
             '<i class="fas fa-cloud-sun" id="weatherIcon"></i>'
-        ).fitText(0.1);
+        )
     }
+
+    //add the weather information
+    $('.weatherData')
 }
 
 //Expands the section on button click
