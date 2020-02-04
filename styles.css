@@ -32,7 +32,7 @@
 
 #content-box{
     background: #c4c4c4;
-    border-radius: 5px;
+    border-radius: 6px;
 }
 
 .weatherVisual{
@@ -87,21 +87,30 @@ img{
     border-radius: 40px;
 }
 
-#expand{
+.btn{
     position: absolute;
-    width: 37px;
-    height: 23px;
     background: #EB5160;
     border-radius: 5px;
     left: 100%;
     top: 100%;
-    transform: translate(-110%, -110%); /*since the above move it 100%, it is 100% of its body height and width out of the container, so you need to translate it back that same amount8*/
 }
 
-#expand:hover{
+.btn:hover{
     cursor: pointer;
     background: #9CC5A1;
 }
+
+.btn-expand{
+    width: 50px;
+    height: 23px;
+    transform: translate(-110%, -110%); /*since the above move it 100%, it is 100% of its body height and width out of the container, so you need to translate it back that same amount*/
+}
+.btn-save{
+    width: 38px;
+    height: 23px;
+    transform: translate(-260%, -110%);
+}
+
 #title:hover{
     cursor: pointer;
     color: #9CC5A1; 
@@ -142,4 +151,33 @@ img{
     justify-items: center;
 }
 
+textarea {
+    width: 100%;
+    height: 100%;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    border-radius: 3%;
+    outline: none;                  /*removes blue glow*/
+    resize: none;                   /*Removes resize handle*/
+    overflow: auto;
+}
 
+/*********Center the place holder***********/
+::-webkit-input-placeholder{
+    text-align: center;
+}
+:-moz-placeholder { /* Firefox 18- */
+    text-align: center;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    text-align: center;
+}
+:-ms-input-placeholder {
+    text-align: center;
+}
+/*******************************************/
+
+#saveBtn{
+
+}
