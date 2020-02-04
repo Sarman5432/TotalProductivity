@@ -18,7 +18,6 @@ function weatherAPI(position) {
     });
 }
 
-
 //add the weather to the UI
 function weatherUI(weatherData) {
     //add the icon based on current condition
@@ -89,10 +88,38 @@ function saveNote(){
     download("test", text);
 }
 
+//Create save popup
+function createSavePopup(){
+    var modalHeader = document.getElementsByClassName('modalHeader');
+    var modalBody = document.getElementsByClassName('modalBody');
+    var modalFooter = document.getElementsByClassName('modalFooter');
 
-//pop up asking for user to select file name/location
+    //header
+    var close = document.createElement('span');
+    var header = document.createElement('h2');
 
+    close.setAttribute("class", "close")
+    close.append('&times;')
+    header.append('Download File');
 
+    modalHeader.appendChild(close);
+    modalHeader.appendChild(header);
+
+    //body
+    var text = document.createElement('p');
+    text.append('This is temp text');
+    modalBody.appendChild(text);
+
+    //footer
+    var footer = document.createElement('h2');
+    footer.append('Footer temp');
+}
+
+//Events: save popup
+function savePopup(){
+    var popUp = document.getElementById("saveModal");
+    var btn
+}
 
 //download to users local system as txt file
 function download(filename, data){
@@ -104,7 +131,6 @@ function download(filename, data){
         elem.href = URL.createObjectURL(blob); //sets href to url of the blob
         elem.download = filename; //the download attribute downloads href to computer on click
         elem.click(); //adds click event on save button
-        
     }
 }
 

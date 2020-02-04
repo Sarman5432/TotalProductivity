@@ -8,27 +8,42 @@
     <title>TotalProductivity</title>
 </head>
 <body>
+    <!--Container-->
     <div id="container">
+        <!--Header-->
         <div id="header">
             <p id="title">TotalProductivity</p>
             <div class="login">
                 <img src="images\temp\profile-pic.jpg" alt="">
             </div>
         </div>
+        <!--Content-->
         <div id="content">
+            <!--Weather Area-->
             <div id="content-box" class="weatherVisual"></div>
             <div id="content-box" class="weatherInfo"><div id="weatherConditions"><p id="weather-title">Current Conditions</p></div></div>
+            <!--Personal Notes Area-->
             <div id="content-box" class="notes">
                 <textarea placeholder="Write Your Notes Here!" wrap="off" id="textArea"></textarea>
                 <button class="btn btn-expand">Expand</button>
                 <button class="btn btn-save">Save</button>
             </div>
+            <!--Calender Area-->
             <div id="content-box" class="calender">
                 <button onclick="fullPage()" id="expand"></button>
             </div>
         </div>
     </div>
+    <!--Popup Modal: Save/Download-->
+    <div class="modal" id="saveModel">
+        <div class="modalContent">
+            <div class="modalHeader"></div>
+            <div class="modalBody"></div>
+            <div class="modalFooter"></div>
+        </div>
+    </div>
 
+    <!--Script Files-->
     <script src="javascript/jquery-3.4.1.min.js"></script>
     <script src="javascript/fontawesome.js" SameSite="none Secure"></script>
     <script src="script.js"></script>
