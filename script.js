@@ -104,6 +104,7 @@ function download(filename, data){
         elem.href = URL.createObjectURL(blob); //sets href to url of the blob
         elem.download = filename; //the download attribute downloads href to computer on click
         elem.click(); //adds click event on save button
+        
     }
 }
 
